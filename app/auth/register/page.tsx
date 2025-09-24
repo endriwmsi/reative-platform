@@ -1,17 +1,17 @@
-import { LoginForm } from "@/components/auth-forms/login-form";
+import { RegisterForm } from "@/components/auth-forms/register-form";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Faça login na plataforma",
-  description: "Página de Login da plataforma",
+  title: "Registre-se na plataforma",
+  description: "Página de registro da plataforma",
 };
 
-const LoginPage = () => {
+const RegisterPage = () => {
   return (
     <div className="flex flex-col">
-      <LoginForm />
+      <RegisterForm />
 
       {/* Social Login Section */}
       <div className="w-full mt-6">
@@ -29,16 +29,16 @@ const LoginPage = () => {
 
       {/* Registration Link */}
       <div className="mt-6 text-center text-sm w-full">
-        <span className="text-gray-400">Ainda não tem uma conta? </span>
+        <span className="text-gray-400">Já tem uma conta? </span>
         <Link
-          href="/auth/register"
+          href="/auth/login"
           className="text-white underline underline-offset-4 hover:text-gray-300"
         >
-          Crie uma aqui
+          Entre agora
         </Link>
       </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
