@@ -4,7 +4,7 @@ export default function AuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="min-h-screen relative flex items-center justify-center p-12">
+    <div className="relative flex min-h-screen items-center justify-center p-6">
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -19,30 +19,30 @@ export default function AuthLayout({
 
       {/* Background decorative circles */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/20 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/5 rounded-full blur-2xl"></div>
+        <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-white/20 blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-white/10 blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-white/5 blur-2xl"></div>
       </div>
 
       {/* Login card */}
-      <div className="relative flex z-10 w-full max-w-7xl">
-        <div className="bg-zinc-950 w-[40%] backdrop-blur-sm rounded-l-2xl shadow-2xl border border-gray-700/50 p-14">
+      <div className="relative z-10 flex w-full max-w-7xl">
+        <div className="w-full rounded-2xl border border-gray-700/50 bg-zinc-950 p-8 shadow-2xl backdrop-blur-sm md:w-[40%] md:rounded-l-2xl md:rounded-r-none md:p-14">
           {/* Logo */}
           <div className="mb-10">
-            <div className="text-white text-2xl font-bold">Lorem Ipsum</div>
-            <div className="text-gray-400 text-sm">Platform</div>
+            <div className="text-2xl font-bold text-white">Lorem Ipsum</div>
+            <div className="text-sm text-gray-400">Platform</div>
           </div>
 
           {/* Content with original padding */}
-          <div className="pt-24">{children}</div>
+          <div className="pt-12">{children}</div>
         </div>
 
-        <div className="w-[60%] bg-white/10 backdrop-blur-xl rounded-r-2xl shadow-2xl border border-white/20 p-8 relative overflow-hidden">
+        <div className="relative hidden w-[60%] overflow-hidden rounded-r-2xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl md:block">
           <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-tl from-gray-400/10 via-transparent to-white/5"></div>
 
-          <div className="relative z-10 h-full flex items-center justify-center">
-            <div className="text-white/60 text-lg font-light"></div>
+          <div className="relative z-10 flex h-full items-center justify-center">
+            <div className="text-lg font-light text-white/60"></div>
           </div>
         </div>
       </div>
