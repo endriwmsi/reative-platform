@@ -32,7 +32,7 @@ export function Step3Content({ control }: Step3ContentProps) {
         )}
       />
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-3 gap-4">
         <FormField
           control={control}
           name="number"
@@ -70,26 +70,26 @@ export function Step3Content({ control }: Step3ContentProps) {
             </div>
           )}
         />
-      </div>
 
-      <FormField
-        control={control}
-        name="neighborhood"
-        render={({ field }) => (
-          <div className="grid gap-2">
-            {/* <FormLabel className="text-white">Bairro</FormLabel> */}
-            <FormControl>
-              <Input
-                {...field}
-                type="text"
-                placeholder="Bairro"
-                className="text-secondary w-full border-0 bg-zinc-900 px-4 py-5"
-              />
-            </FormControl>
-            <FormMessage />
-          </div>
-        )}
-      />
+        <FormField
+          control={control}
+          name="neighborhood"
+          render={({ field }) => (
+            <div className="grid gap-2">
+              {/* <FormLabel className="text-white">Bairro</FormLabel> */}
+              <FormControl>
+                <Input
+                  {...field}
+                  type="text"
+                  placeholder="Bairro"
+                  className="text-secondary w-full border-0 bg-zinc-900 px-4 py-5"
+                />
+              </FormControl>
+              <FormMessage />
+            </div>
+          )}
+        />
+      </div>
 
       <div className="grid grid-cols-2 gap-4">
         <FormField
