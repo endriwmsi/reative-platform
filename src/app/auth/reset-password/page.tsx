@@ -1,6 +1,13 @@
 import { ResetPasswordForm } from "@/components/auth-forms/reset-password-form";
 import { redirect } from "next/navigation";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Recuperação de senha",
+  description: "Página de recuperação de senha.",
+};
+
 interface PageProps {
   searchParams: Promise<{ token: string }>;
 }

@@ -1,8 +1,12 @@
-// import SendVerificationEmailForm from "@/app/(public)/auth/components/send-verification-email-form";
-// import { Icons } from "@/components/icons";
-
 import EmailVerificationForm from "@/components/auth-forms/email-verification-form";
 import { redirect } from "next/navigation";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Verifique seu e-mail!",
+  description: "Página de verificação de e-mail de cadastro.",
+};
 
 interface VerifyPageProps {
   searchParams: Promise<{ error: string }>;

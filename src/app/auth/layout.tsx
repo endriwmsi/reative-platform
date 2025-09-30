@@ -10,7 +10,7 @@ export default function AuthLayout({
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-4.0.3&auto=format&fit=crop&w=2029&q=80')",
+            "url('https://images.unsplash.com/photo-1490093158370-1a6be674437b?q=80&w=1014&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
         }}
       ></div>
 
@@ -26,7 +26,7 @@ export default function AuthLayout({
 
       {/* Login card */}
       <div className="relative z-10 flex w-full max-w-7xl">
-        <div className="w-full rounded-2xl border border-gray-700/50 bg-zinc-950 p-8 shadow-2xl backdrop-blur-sm md:w-[40%] md:rounded-l-2xl md:rounded-r-none md:p-14">
+        <div className="w-full rounded-2xl border border-gray-700/50 bg-zinc-950 p-8 shadow-2xl md:w-[40%] md:rounded-l-2xl md:rounded-r-none md:p-14">
           {/* Logo */}
           <div className="mb-10">
             <div className="text-2xl font-bold text-white">Lorem Ipsum</div>
@@ -37,7 +37,7 @@ export default function AuthLayout({
           <div className="pt-12">{children}</div>
         </div>
 
-        <div className="relative hidden w-[60%] overflow-hidden rounded-r-2xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl md:block">
+        <div className="relative hidden w-[60%] overflow-hidden rounded-r-2xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xs md:block">
           <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-tl from-gray-400/10 via-transparent to-white/5"></div>
 

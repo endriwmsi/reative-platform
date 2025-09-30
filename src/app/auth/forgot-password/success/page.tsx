@@ -1,6 +1,13 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Link de recuperação enviado!",
+  description: "Página de sucesso de recuperação de senha.",
+};
+
 export default function Page() {
   return (
     <div className="lg:p-8">

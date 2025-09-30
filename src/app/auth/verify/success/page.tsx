@@ -2,6 +2,13 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Verifique seu e-mail!",
+  description: "Página de verificação de e-mail de cadastro.",
+};
+
 const SuccessPage = () => {
   return (
     <div className="flex h-screen w-screen items-center justify-center">

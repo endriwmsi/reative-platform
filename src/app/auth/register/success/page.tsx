@@ -2,6 +2,13 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sucesso!",
+  description: "Página de sucesso de cadastro.",
+};
+
 const SuccessPage = () => {
   return (
     <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">

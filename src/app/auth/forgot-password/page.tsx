@@ -1,5 +1,12 @@
 import { ForgotPasswordForm } from "@/components/auth-forms/forgot-passoword-form";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Recupere sua senha!",
+  description: "Página de recuperação de senha.",
+};
+
 const ForgotPasswordPage = () => {
   return (
     <div className="lg:p-8">
