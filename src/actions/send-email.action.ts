@@ -3,138 +3,180 @@
 import transporter from "@/lib/nodemailer";
 
 const emailTemplate = {
-  // Main container styles
-  container: `
-    max-width: 600px;
-    margin: 0 auto;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  `,
-
-  // Header section
-  header: `
-    background: rgba(255,255,255,0.1);
-    padding: 40px 30px;
-    text-align: center;
-    backdrop-filter: blur(10px);
-  `,
-
-  // Logo/Brand
-  brand: `
-    font-size: 28px;
-    font-weight: 700;
-    color: #ffffff;
-    margin: 0 0 10px 0;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    letter-spacing: -0.5px;
-  `,
-
-  // Subtitle
-  subtitle: `
-    font-size: 16px;
-    color: rgba(255,255,255,0.9);
+  // Main email wrapper - minimalista e elegante
+  wrapper: `
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
     margin: 0;
+    padding: 40px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
+    line-height: 1.6;
+  `,
+
+  // Container principal
+  container: `
+    max-width: 560px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.08);
+  `,
+
+  // Header minimalista com linha dourada
+  header: `
+    background: #ffffff;
+    padding: 0;
+    border-top: 3px solid #d4af37;
+    position: relative;
+  `,
+
+  // Logo section
+  logoSection: `
+    padding: 48px 48px 24px 48px;
+    text-align: center;
+    border-bottom: 1px solid #f5f5f5;
+  `,
+
+  // Brand name
+  brand: `
+    font-size: 24px;
+    font-weight: 300;
+    color: #1a1a1a;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  `,
+
+  // Subtle tagline
+  tagline: `
+    font-size: 12px;
+    color: #8a8a8a;
+    margin: 8px 0 0 0;
     font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
   `,
 
   // Content area
   content: `
+    padding: 48px 48px 40px 48px;
     background: #ffffff;
-    padding: 50px 40px;
-    position: relative;
   `,
 
-  // Main title
+  // Main title - elegante e minimalista
   title: `
-    font-size: 32px;
-    color: #2d3748;
-    margin: 0 0 20px 0;
-    font-weight: 700;
-    line-height: 1.2;
+    font-size: 28px;
+    color: #1a1a1a;
+    margin: 0 0 32px 0;
+    font-weight: 300;
+    line-height: 1.3;
     text-align: center;
+    letter-spacing: -0.5px;
   `,
 
   // Description text
   description: `
-    font-size: 18px;
-    color: #4a5568;
-    line-height: 1.6;
-    margin: 0 0 35px 0;
+    font-size: 16px;
+    color: #4a4a4a;
+    line-height: 1.7;
+    margin: 0 0 40px 0;
     text-align: center;
     font-weight: 400;
   `,
 
-  // CTA Button
+  // Button container
+  buttonWrapper: `
+    text-align: center;
+    margin: 40px 0;
+  `,
+
+  // CTA Button - sofisticado com dourado
   button: `
     display: inline-block;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
     color: #ffffff;
     text-decoration: none;
-    padding: 16px 32px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 16px;
-    text-align: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
-    border: none;
-    cursor: pointer;
-    letter-spacing: 0.5px;
-  `,
-
-  // Button container
-  buttonContainer: `
-    text-align: center;
-    margin: 35px 0;
-  `,
-
-  // Footer
-  footer: `
-    background: #f7fafc;
-    padding: 30px 40px;
-    text-align: center;
-    border-top: 1px solid #e2e8f0;
-  `,
-
-  // Footer text
-  footerText: `
+    padding: 16px 40px;
+    border-radius: 1px;
+    font-weight: 500;
     font-size: 14px;
-    color: #718096;
-    margin: 0 0 10px 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+    border: none;
+  `,
+
+  // Elegant divider
+  divider: `
+    width: 60px;
+    height: 1px;
+    background: #d4af37;
+    margin: 40px auto;
+    border: none;
+  `,
+
+  // Info box minimalista
+  infoBox: `
+    background: #fafafa;
+    border: 1px solid #f0f0f0;
+    padding: 24px;
+    margin: 32px 0;
+    border-radius: 1px;
+    border-left: 2px solid #d4af37;
+  `,
+
+  infoText: `
+    margin: 0;
+    color: #6a6a6a;
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 400;
+  `,
+
+  // Footer elegante
+  footer: `
+    background: #f8f8f8;
+    padding: 32px 48px;
+    text-align: center;
+    border-top: 1px solid #f0f0f0;
+  `,
+
+  // Footer branding
+  footerBrand: `
+    font-size: 16px;
+    color: #1a1a1a;
+    margin: 0 0 8px 0;
+    font-weight: 300;
+    letter-spacing: 1px;
+  `,
+
+  // Footer description
+  footerDesc: `
+    font-size: 13px;
+    color: #8a8a8a;
+    margin: 0 0 24px 0;
+    font-weight: 400;
     line-height: 1.5;
   `,
 
-  // Divider
-  divider: `
+  // Copyright
+  copyright: `
+    font-size: 11px;
+    color: #b0b0b0;
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  `,
+
+  // Accent line
+  accentLine: `
+    width: 40px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
-    margin: 30px 0;
+    background: #d4af37;
+    margin: 16px auto 24px auto;
     border: none;
-  `,
-
-  // Decorative elements
-  decoration: `
-    position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-    border-radius: 50%;
-    z-index: 0;
-  `,
-
-  // Content wrapper to ensure content is above decoration
-  contentWrapper: `
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 1;
   `,
 };
 
@@ -156,7 +198,7 @@ export async function sendEmailAction({
   const mailOptions = {
     from: process.env.NODEMAILER_USER,
     to,
-    subject: `🚀 Reative Platform - ${subject}`,
+    subject: `Reative Platform • ${subject}`,
     html: `
       <!DOCTYPE html>
       <html lang="pt-BR">
@@ -164,6 +206,7 @@ export async function sendEmailAction({
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>${subject}</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
         <!--[if mso]>
         <noscript>
           <xml>
@@ -174,97 +217,100 @@ export async function sendEmailAction({
         </noscript>
         <![endif]-->
       </head>
-      <body style="margin: 0; padding: 0; min-height: 100vh; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+      <body style="${emailTemplate.wrapper}">
         
-        <!-- Main Container -->
+        <!-- Email Container -->
         <div style="${emailTemplate.container}">
           
-          <!-- Header Section -->
+          <!-- Header with Golden Accent -->
           <div style="${emailTemplate.header}">
-            <h1 style="${emailTemplate.brand}">Reative Platform</h1>
-            <p style="${emailTemplate.subtitle}">Sua plataforma de desenvolvimento reativo</p>
-          </div>
-          
-          <!-- Content Section -->
-          <div style="${emailTemplate.content}">
-            <!-- Decorative Element -->
-            <div style="${emailTemplate.decoration}"></div>
-            
-            <!-- Content Wrapper -->
-            <div style="${emailTemplate.contentWrapper}">
-              <h2 style="${emailTemplate.title}">${subject}</h2>
-              
-              <hr style="${emailTemplate.divider}">
-              
-              <p style="${emailTemplate.description}">${meta.description}</p>
-              
-              <!-- CTA Button -->
-              <div style="${emailTemplate.buttonContainer}">
-                <a href="${meta.link}" style="${emailTemplate.button}">
-                  ${meta.buttonText || "Continuar"} →
-                </a>
-              </div>
-              
-              <hr style="${emailTemplate.divider}">
-              
-              <!-- Additional Info -->
-              <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #667eea; margin: 20px 0;">
-                <p style="margin: 0; color: #4a5568; font-size: 14px; line-height: 1.6;">
-                  <strong>💡 Dica:</strong> Se você não solicitou esta ação, pode ignorar este email com segurança.
-                </p>
-              </div>
+            <div style="${emailTemplate.logoSection}">
+              <h1 style="${emailTemplate.brand}">Reative Platform</h1>
+              <p style="${emailTemplate.tagline}">Excellence in Development</p>
             </div>
           </div>
           
-          <!-- Footer Section -->
+          <!-- Main Content -->
+          <div style="${emailTemplate.content}">
+            <h2 style="${emailTemplate.title}">${subject}</h2>
+            
+            <hr style="${emailTemplate.divider}">
+            
+            <p style="${emailTemplate.description}">${meta.description}</p>
+            
+            <!-- Call to Action -->
+            <div style="${emailTemplate.buttonWrapper}">
+              <a href="${meta.link}" style="${emailTemplate.button}">
+                ${meta.buttonText || "Prosseguir"}
+              </a>
+            </div>
+            
+            <hr style="${emailTemplate.divider}">
+            
+            <!-- Security Notice -->
+            <div style="${emailTemplate.infoBox}">
+              <p style="${emailTemplate.infoText}">
+                <strong>Segurança:</strong> Se você não solicitou esta ação, pode ignorar este email com segurança. Nenhuma alteração será feita em sua conta.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Elegant Footer -->
           <div style="${emailTemplate.footer}">
-            <p style="${emailTemplate.footerText}">
-              <strong>Reative Platform</strong><br>
-              Desenvolvendo o futuro, hoje.
+            <h3 style="${emailTemplate.footerBrand}">Reative Platform</h3>
+            <hr style="${emailTemplate.accentLine}">
+            <p style="${emailTemplate.footerDesc}">
+              Transformando ideias em soluções digitais excepcionais.<br>
+              Tecnologia de ponta com design sofisticado.
             </p>
-            <p style="${emailTemplate.footerText}">
+            <p style="${emailTemplate.copyright}">
               © ${currentYear} Reative Platform. Todos os direitos reservados.
-            </p>
-            <p style="font-size: 12px; color: #a0aec0; margin: 15px 0 0 0;">
-              Este é um email automático, por favor não responda.<br>
-              Se precisar de ajuda, entre em contato conosco através do nosso suporte.
             </p>
           </div>
           
         </div>
         
-        <!-- Mobile Responsive Styles -->
+        <!-- Responsive Styles -->
         <style>
           @media only screen and (max-width: 600px) {
             .email-container {
-              margin: 10px !important;
-              border-radius: 12px !important;
+              margin: 20px 10px !important;
             }
-            .content-padding {
-              padding: 30px 20px !important;
+            .content-mobile {
+              padding: 32px 24px !important;
             }
-            .header-padding {
-              padding: 30px 20px !important;
+            .logo-mobile {
+              padding: 32px 24px 16px 24px !important;
             }
-            .footer-padding {
-              padding: 20px !important;
+            .footer-mobile {
+              padding: 24px !important;
             }
             .title-mobile {
-              font-size: 24px !important;
+              font-size: 22px !important;
+              line-height: 1.4 !important;
             }
             .description-mobile {
-              font-size: 16px !important;
+              font-size: 15px !important;
             }
             .button-mobile {
-              padding: 14px 28px !important;
-              font-size: 15px !important;
+              padding: 14px 32px !important;
+              font-size: 13px !important;
+            }
+            .brand-mobile {
+              font-size: 20px !important;
             }
           }
           
-          /* Dark mode support */
-          @media (prefers-color-scheme: dark) {
-            .email-body {
-              background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%) !important;
+          /* Button hover effect */
+          .cta-button:hover {
+            background: linear-gradient(135deg, #b8941f 0%, #9c7d1a 100%) !important;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4) !important;
+          }
+          
+          /* High contrast mode support */
+          @media (prefers-contrast: high) {
+            .accent-gold {
+              background: #8b6914 !important;
             }
           }
         </style>
