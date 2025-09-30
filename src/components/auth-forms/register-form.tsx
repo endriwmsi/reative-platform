@@ -1,86 +1,65 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
-import Link from "next/link";
-import { useState } from "react";
+import { Form } from "../ui/form";
+import { StepIndicator } from "./components/step-indicator";
+import { Step1Content } from "./components/step1-content";
+import { Step2Content } from "./components/step2-content";
+import { Step3Content } from "./components/step3-content";
+import { NavigationButtons } from "./components/navigation-buttons";
+import { useRegisterForm } from "./hooks/use-register-form";
+
+// Re-export schemas for backward compatibility
+export { registerSchema } from "./schemas/register-schemas";
+
+// Configuração das etapas
+const steps = [
+  { number: 1, title: "Dados Básicos", description: "Nome, email e senha" },
+  { number: 2, title: "Documentos", description: "CPF, CNPJ e telefone" },
+  { number: 3, title: "Endereço", description: "Endereço completo" },
+];
 
 export function RegisterForm() {
-  const [acceptTerms, setAcceptTerms] = useState(false);
+  const { formData, currentStep, isPending, nextStep, prevStep, onSubmit } =
+    useRegisterForm();
+
+  const renderStepContent = () => {
+    switch (currentStep) {
+      case 1:
+        return <Step1Content control={formData.control} />;
+      case 2:
+        return <Step2Content control={formData.control} />;
+      case 3:
+        return <Step3Content control={formData.control} />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="w-full">
       <div className="mb-9">
-        <h1 className="text-2xl font-bold text-white mb-2">Criar conta</h1>
+        <h1 className="mb-2 text-2xl font-bold text-white">Criar conta</h1>
         <p className="text-gray-400">
           Crie sua conta e tenha acesso a todos os benefícios
         </p>
       </div>
 
-      <form className="w-full">
-        <div className="flex flex-col space-y-4">
-          <Input
-            id="fullname"
-            type="text"
-            placeholder="Nome completo"
-            className="w-full bg-zinc-900 border-0 px-4 py-5"
-            required
-          />
+      <StepIndicator currentStep={currentStep} steps={steps} />
 
-          <Input
-            id="email"
-            type="email"
-            placeholder="E-mail"
-            className="w-full bg-zinc-900 border-0 px-4 py-5"
-            required
-          />
+      <Form {...formData}>
+        <form onSubmit={formData.handleSubmit(onSubmit)} className="w-full">
+          {renderStepContent()}
 
-          <Input
-            id="password"
-            type="password"
-            placeholder="Senha"
-            className="bg-zinc-900 border-0 px-4 py-5"
-            required
+          <NavigationButtons
+            currentStep={currentStep}
+            totalSteps={steps.length}
+            isPending={isPending}
+            acceptTerms={formData.watch("acceptTerms")}
+            onPrevious={prevStep}
+            onNext={nextStep}
           />
-
-          <Input
-            id="confirm-password"
-            type="password"
-            placeholder="Confirme sua senha"
-            className="bg-zinc-900 border-0 px-4 py-5"
-            required
-          />
-          <div className="flex items-center space-x-2">
-            <Checkbox
-              id="terms"
-              checked={acceptTerms}
-              onCheckedChange={(checked) => setAcceptTerms(checked === true)}
-            />
-            <label
-              htmlFor="terms"
-              className="text-sm text-gray-400 cursor-pointer"
-            >
-              Eu aceito os{" "}
-              <Link
-                href="/termos-e-condicoes"
-                className="text-white hover:text-gray-300 underline underline-offset-4"
-              >
-                Termos & Condições
-              </Link>
-            </label>
-          </div>
-
-          <Button
-            type="submit"
-            className="w-full text-primary"
-            variant="secondary"
-            disabled={!acceptTerms}
-          >
-            Criar conta
-          </Button>
-        </div>
-      </form>
+        </form>
+      </Form>
     </div>
   );
 }
