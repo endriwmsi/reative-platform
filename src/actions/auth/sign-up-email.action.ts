@@ -9,7 +9,7 @@ import {
   cleanCNPJ,
 } from "@/lib/cpf-cnpj-validator";
 import { db } from "@/db";
-import { userTable } from "@/db/schema";
+import { user } from "@/db/schema";
 import { APIError } from "better-auth/api";
 import { eq, or } from "drizzle-orm";
 import { z } from "zod";
@@ -38,17 +38,17 @@ export async function signUpEmailAction(data: registerSchema) {
 
     const existingUser = await db
       .select({
-        id: userTable.id,
-        email: userTable.email,
-        cpf: userTable.cpf,
-        cnpj: userTable.cnpj,
+        id: user.id,
+        email: user.email,
+        cpf: user.cpf,
+        cnpj: user.cnpj,
       })
-      .from(userTable)
+      .from(user)
       .where(
         or(
-          eq(userTable.email, data.email),
-          eq(userTable.cpf, cleanedCPF),
-          eq(userTable.cnpj, cleanedCNPJ)
+          eq(user.email, data.email),
+          eq(user.cpf, cleanedCPF),
+          eq(user.cnpj, cleanedCNPJ)
         )
       )
       .limit(1);

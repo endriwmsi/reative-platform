@@ -2,28 +2,15 @@ import { betterAuth } from "better-auth";
 import { createAuthMiddleware, APIError } from "better-auth/api";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { getValidDomains, normalizeName } from "./lib/utils";
-import { sendEmailAction } from "./actions/send-email.action";
+import { sendEmailAction } from "./actions/mail/send-email.action";
 import { db } from "@/db";
-import {
-  userTable,
-  sessionTable,
-  accountTable,
-  verificationTable,
-  partnerTable,
-  transactionTable,
-} from "@/db/schema";
+import * as schema from "@/db/schema";
+import { nextCookies } from "better-auth/next-js";
 
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
     provider: "pg",
-    schema: {
-      user: userTable,
-      session: sessionTable,
-      account: accountTable,
-      verification: verificationTable,
-      partner: partnerTable,
-      transaction: transactionTable,
-    },
+    schema,
   }),
 
   emailAndPassword: {
@@ -77,6 +64,7 @@ export const auth = betterAuth({
       });
     },
   },
+
   hooks: {
     before: createAuthMiddleware(async (ctx) => {
       if (ctx.path === "/sign-up/email") {
@@ -105,6 +93,10 @@ export const auth = betterAuth({
       }
     }),
   },
+  session: {
+    expiresIn: 60 * 60 * 24,
+  },
+  plugins: [nextCookies()],
 });
 
 export type ErrorCode = keyof typeof auth.$ERROR_CODES | "UNKNOWN";

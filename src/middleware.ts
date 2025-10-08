@@ -1,8 +1,6 @@
 import { getSessionCookie } from "better-auth/cookies";
 import { NextRequest, NextResponse } from "next/server";
 
-const protectedRoutes = ["/dashboard**"];
-
 export async function middleware(req: NextRequest) {
   const { nextUrl } = req;
 
@@ -11,11 +9,13 @@ export async function middleware(req: NextRequest) {
   const res = NextResponse.next();
 
   const isLoggedIn = !!sessionCookie;
-  const isOnProtectedRoute = protectedRoutes.includes(nextUrl.pathname);
+  const isOnProtectedRoute = nextUrl.pathname.startsWith("/dashboard");
   const isOnAuthRoute = nextUrl.pathname.startsWith("/auth");
 
   if (isOnProtectedRoute && !isLoggedIn) {
-    return NextResponse.redirect(new URL("/auth/login", req.url));
+    const loginUrl = new URL("/auth/login", req.url);
+    loginUrl.searchParams.set("callbackURL", nextUrl.pathname + nextUrl.search);
+    return NextResponse.redirect(loginUrl);
   }
 
   if (isOnAuthRoute && isLoggedIn) {

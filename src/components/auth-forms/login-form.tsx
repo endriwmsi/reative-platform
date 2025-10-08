@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
-import { signInEmailAction } from "@/actions/sign-in-email.action";
+import { signInEmailAction } from "@/actions/auth/sign-in-email.action";
 import { Form, FormControl, FormField, FormMessage } from "../ui/form";
 import { PasswordInput } from "../ui/password-input";
 import { Icons } from "../ui/icons";

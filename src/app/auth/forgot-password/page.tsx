@@ -1,4 +1,4 @@
-import { ForgotPasswordForm } from "@/components/auth-forms/forgot-passoword-form";
+import { ForgotPasswordForm } from "@/domain/auth/components/forgot-password-form";
 
 import type { Metadata } from "next";
 

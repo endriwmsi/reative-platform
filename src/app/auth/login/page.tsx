@@ -1,6 +1,6 @@
-import { LoginForm } from "@/components/auth-forms/login-form";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { LoginForm } from "@/components/auth-forms/login-form";
 
 export const metadata: Metadata = {
   title: "Faça login na plataforma",

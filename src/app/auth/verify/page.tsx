@@ -1,4 +1,4 @@
-import EmailVerificationForm from "@/components/auth-forms/email-verification-form";
+import EmailVerificationForm from "@/domain/auth/components/email-verification-form";
 import { redirect } from "next/navigation";
 
 import type { Metadata } from "next";

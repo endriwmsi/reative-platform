@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { signUpEmailAction } from "@/actions/sign-up-email.action";
 import {
   registerSchema,
   step1Schema,
@@ -11,6 +10,7 @@ import {
   step3Schema,
   RegisterFormData,
 } from "../schemas/register-schemas";
+import { signUpEmailAction } from "@/actions/auth/sign-up-email.action";
 
 export function useRegisterForm() {
   const [currentStep, setCurrentStep] = useState(1);

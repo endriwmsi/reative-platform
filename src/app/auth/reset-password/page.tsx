@@ -1,4 +1,4 @@
-import { ResetPasswordForm } from "@/components/auth-forms/reset-password-form";
+import { ResetPasswordForm } from "@/domain/auth/components/reset-password-form";
 import { redirect } from "next/navigation";
 
 import type { Metadata } from "next";
