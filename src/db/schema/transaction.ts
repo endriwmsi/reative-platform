@@ -1,5 +1,5 @@
 import { integer, pgEnum, pgTable, text, timestamp } from "drizzle-orm/pg-core";
-import { user } from "./auth";
+import { user } from "./user";
 
 // Enums para transações
 export const transactionTypeEnum = pgEnum("transaction_type", [

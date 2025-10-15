@@ -1,7 +1,7 @@
 "use server";
 
 import { auth } from "@/auth";
-import { db } from "@/db";
+import { db } from "@/db/client";
 import { transaction } from "@/db/schema/transaction";
 import { eq } from "drizzle-orm";
 import { headers } from "next/headers";

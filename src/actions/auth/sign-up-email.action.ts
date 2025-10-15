@@ -8,7 +8,7 @@ import {
   cleanCPF,
   cleanCNPJ,
 } from "@/lib/cpf-cnpj-validator";
-import { db } from "@/db";
+import { db } from "@/db/client";
 import { user } from "@/db/schema";
 import { APIError } from "better-auth/api";
 import { eq, or } from "drizzle-orm";
@@ -79,7 +79,7 @@ export async function signUpEmailAction(data: registerSchema) {
         cnpj: cleanedCNPJ,
         street: data.street,
         number: data.number,
-        complement: data.complement ?? "",
+        complement: data.complement,
         neighborhood: data.neighborhood,
         city: data.city,
         uf: data.state,

@@ -71,7 +71,7 @@ export const registerSchema = z
     // Etapa 3
     street: z.string().min(1, { message: "Rua é obrigatória" }),
     number: z.string().min(1, { message: "Número é obrigatório" }),
-    complement: z.string().optional(),
+    complement: z.string().min(1, { message: "Complemento é obrigatório" }),
     neighborhood: z.string().min(1, { message: "Bairro é obrigatório" }),
     city: z.string().min(1, { message: "Cidade é obrigatória" }),
     state: z.string().min(2, { message: "Estado deve ter 2 caracteres" }),

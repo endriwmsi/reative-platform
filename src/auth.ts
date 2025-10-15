@@ -3,14 +3,13 @@ import { createAuthMiddleware, APIError } from "better-auth/api";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { getValidDomains, normalizeName } from "./lib/utils";
 import { sendEmailAction } from "./actions/mail/send-email.action";
-import { db } from "@/db";
-import * as schema from "@/db/schema";
+import { db } from "@/db/client";
 import { nextCookies } from "better-auth/next-js";
 
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
     provider: "pg",
-    schema,
+    usePlural: true,
   }),
 
   emailAndPassword: {
