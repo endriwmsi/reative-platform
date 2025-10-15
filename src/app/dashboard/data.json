@@ -1,0 +1,286 @@
+{
+  "metrics": {
+    "saldoDisponivel": 15420.5,
+    "totalVendas": 89750.0,
+    "vendasHoje": 2340.0,
+    "indicadosDiretos": 47,
+    "proximaLista": "15/01/2025",
+    "totalFaturamento": 234567.89,
+    "ativos": 42,
+    "inativos": 5,
+    "saldoChart": [
+      { "day": "Seg", "value": 12500 },
+      { "day": "Ter", "value": 13200 },
+      { "day": "Qua", "value": 14100 },
+      { "day": "Qui", "value": 14800 },
+      { "day": "Sex", "value": 15420.5 }
+    ],
+    "vendasHojeChart": [
+      { "hour": "08h", "value": 150 },
+      { "hour": "10h", "value": 320 },
+      { "hour": "12h", "value": 580 },
+      { "hour": "14h", "value": 890 },
+      { "hour": "16h", "value": 1240 },
+      { "hour": "18h", "value": 1680 },
+      { "hour": "20h", "value": 2340 }
+    ],
+    "growthIndicators": {
+      "saldoDisponivel": 8.2,
+      "totalVendas": 15.3,
+      "vendasHoje": 5.7,
+      "indicadosDiretos": 12.5,
+      "totalFaturamento": 22.1,
+      "ativosInativos": 3.2
+    }
+  },
+  "topPartners": [
+    {
+      "id": 1,
+      "name": "Maria Silva",
+      "email": "maria.silva@email.com",
+      "avatar": "/placeholder.svg?height=40&width=40",
+      "totalSales": 45230.5,
+      "position": 1,
+      "growth": 15.2
+    },
+    {
+      "id": 2,
+      "name": "João Santos",
+      "email": "joao.santos@email.com",
+      "avatar": "/placeholder.svg?height=40&width=40",
+      "totalSales": 38940.75,
+      "position": 2,
+      "growth": 12.8
+    },
+    {
+      "id": 3,
+      "name": "Ana Costa",
+      "email": "ana.costa@email.com",
+      "avatar": "/placeholder.svg?height=40&width=40",
+      "totalSales": 32150.25,
+      "position": 3,
+      "growth": 8.5
+    }
+  ],
+  "allPartners": [
+    {
+      "id": 4,
+      "name": "Carlos Oliveira",
+      "email": "carlos.oliveira@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "totalSales": 28750.0,
+      "status": "ativo",
+      "joinDate": "2024-03-15"
+    },
+    {
+      "id": 5,
+      "name": "Fernanda Lima",
+      "email": "fernanda.lima@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "totalSales": 25680.5,
+      "status": "ativo",
+      "joinDate": "2024-02-20"
+    },
+    {
+      "id": 6,
+      "name": "Ricardo Pereira",
+      "email": "ricardo.pereira@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "totalSales": 22340.75,
+      "status": "ativo",
+      "joinDate": "2024-01-10"
+    },
+    {
+      "id": 7,
+      "name": "Juliana Rodrigues",
+      "email": "juliana.rodrigues@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "totalSales": 19850.25,
+      "status": "ativo",
+      "joinDate": "2023-12-05"
+    },
+    {
+      "id": 8,
+      "name": "Pedro Almeida",
+      "email": "pedro.almeida@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "totalSales": 18200.0,
+      "status": "inativo",
+      "joinDate": "2023-11-18"
+    }
+  ],
+  "topInvoicing": [
+    {
+      "id": 1,
+      "name": "Maria Silva",
+      "email": "maria.silva@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "invoicing": 45230.5,
+      "growth": 15.2
+    },
+    {
+      "id": 2,
+      "name": "João Santos",
+      "email": "joao.santos@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "invoicing": 38940.75,
+      "growth": 12.8
+    },
+    {
+      "id": 3,
+      "name": "Ana Costa",
+      "email": "ana.costa@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "invoicing": 32150.25,
+      "growth": 8.5
+    },
+    {
+      "id": 4,
+      "name": "Carlos Oliveira",
+      "email": "carlos.oliveira@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "invoicing": 28750.0,
+      "growth": 5.2
+    },
+    {
+      "id": 5,
+      "name": "Fernanda Lima",
+      "email": "fernanda.lima@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "invoicing": 25680.5,
+      "growth": 3.8
+    },
+    {
+      "id": 6,
+      "name": "Ricardo Pereira",
+      "email": "ricardo.pereira@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "invoicing": 22340.75,
+      "growth": 2.1
+    },
+    {
+      "id": 7,
+      "name": "Juliana Rodrigues",
+      "email": "juliana.rodrigues@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "invoicing": 19850.25,
+      "growth": -1.2
+    },
+    {
+      "id": 8,
+      "name": "Pedro Almeida",
+      "email": "pedro.almeida@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "invoicing": 18200.0,
+      "growth": -3.5
+    },
+    {
+      "id": 9,
+      "name": "Luciana Martins",
+      "email": "luciana.martins@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "invoicing": 16750.5,
+      "growth": 1.8
+    },
+    {
+      "id": 10,
+      "name": "Roberto Silva",
+      "email": "roberto.silva@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "invoicing": 15320.25,
+      "growth": 0.5
+    }
+  ],
+  "newPartners": [
+    {
+      "id": 101,
+      "name": "Camila Ferreira",
+      "email": "camila.ferreira@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "joinDate": "2024-12-20",
+      "referralCode": "PART001",
+      "status": "ativo"
+    },
+    {
+      "id": 102,
+      "name": "Gabriel Souza",
+      "email": "gabriel.souza@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "joinDate": "2024-12-18",
+      "referralCode": "PART001",
+      "status": "ativo"
+    },
+    {
+      "id": 103,
+      "name": "Beatriz Carvalho",
+      "email": "beatriz.carvalho@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "joinDate": "2024-12-15",
+      "referralCode": "PART001",
+      "status": "ativo"
+    },
+    {
+      "id": 104,
+      "name": "Thiago Nascimento",
+      "email": "thiago.nascimento@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "joinDate": "2024-12-12",
+      "referralCode": "PART001",
+      "status": "ativo"
+    },
+    {
+      "id": 105,
+      "name": "Larissa Barbosa",
+      "email": "larissa.barbosa@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "joinDate": "2024-12-10",
+      "referralCode": "PART001",
+      "status": "ativo"
+    },
+    {
+      "id": 106,
+      "name": "Diego Mendes",
+      "email": "diego.mendes@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "joinDate": "2024-12-08",
+      "referralCode": "PART001",
+      "status": "ativo"
+    },
+    {
+      "id": 107,
+      "name": "Isabela Rocha",
+      "email": "isabela.rocha@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "joinDate": "2024-12-05",
+      "referralCode": "PART001",
+      "status": "ativo"
+    },
+    {
+      "id": 108,
+      "name": "Mateus Cardoso",
+      "email": "mateus.cardoso@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "joinDate": "2024-12-03",
+      "referralCode": "PART001",
+      "status": "ativo"
+    },
+    {
+      "id": 109,
+      "name": "Natália Gomes",
+      "email": "natalia.gomes@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "joinDate": "2024-12-01",
+      "referralCode": "PART001",
+      "status": "ativo"
+    },
+    {
+      "id": 110,
+      "name": "Felipe Araújo",
+      "email": "felipe.araujo@email.com",
+      "avatar": "/placeholder.svg?height=32&width=32",
+      "joinDate": "2024-11-28",
+      "referralCode": "PART001",
+      "status": "ativo"
+    }
+  ]
+}
