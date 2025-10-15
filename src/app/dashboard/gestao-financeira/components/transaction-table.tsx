@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import {
   type ColumnDef,
   type ColumnFiltersState,
@@ -61,9 +60,8 @@ import {
   TRANSACTION_TYPES,
   TRANSACTION_STATUS_LABELS,
 } from "@/lib/constants/transaction";
-import { useQueryClient } from "@tanstack/react-query";
-import { toast } from "sonner";
 import { formatCurrencyFromCents } from "@/lib/utils";
+import { useState } from "react";
 
 export type Transaction = {
   id: string;
@@ -196,26 +194,10 @@ interface TransactionTableProps {
 }
 
 export function TransactionTable({ data }: TransactionTableProps) {
-  const [sorting, setSorting] = React.useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
-  );
-  const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({});
-  const [rowSelection, setRowSelection] = React.useState({});
-
-  const queryClient = useQueryClient();
-
-  const handleCreateTransaction = async (transactionData: any) => {
-    try {
-      await queryClient.invalidateQueries({ queryKey: ["transactions"] });
-
-      toast.success("Transação criada com sucesso!");
-    } catch (error) {
-      console.error("Error creating transaction:", error);
-      toast.error("Erro ao criar transação");
-    }
-  };
+  const [sorting, setSorting] = useState<SortingState>([]);
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
+  const [rowSelection, setRowSelection] = useState({});
 
   const table = useReactTable({
     data,
@@ -339,7 +321,7 @@ export function TransactionTable({ data }: TransactionTableProps) {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <CreateTransactionModal onCreateTransaction={handleCreateTransaction}>
+          <CreateTransactionModal>
             <Button size="sm">
               <IconPlus className="mr-2 h-4 w-4" />
               Nova Transação
