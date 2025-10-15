@@ -1,24 +1,31 @@
-import { integer, pgTable, text, timestamp, varchar } from "drizzle-orm/pg-core";
+import { integer, pgEnum, pgTable, text, timestamp } from "drizzle-orm/pg-core";
 import { user } from "./auth";
-import { partner } from "./partner";
+
+// Enums para transações
+export const transactionTypeEnum = pgEnum("transaction_type", [
+  "income",
+  "outcome",
+]);
+export const transactionStatusEnum = pgEnum("transaction_status", [
+  "completed",
+  "pending",
+  "cancelled",
+]);
 
 export const transaction = pgTable("transaction", {
   id: text("id").primaryKey(),
 
   userId: text("user_id")
-    .notNull()  
+    .notNull()
     .references(() => user.id, { onDelete: "cascade" }),
-
-  partnerId: text("partner_id").references(() => partner.id, {
-    onDelete: "set null",
-  }),
 
   description: text("description").notNull(),
   valueInCents: integer("value_in_cents").notNull(),
-  category: varchar("category", { length: 100 }).notNull(),
+  category: text("category").notNull(),
   date: timestamp("date").notNull(),
-  status: varchar("status", { length: 50 }).notNull(),
+  status: transactionStatusEnum("status").notNull(),
+  type: transactionTypeEnum("type").notNull(),
 
   createdAt: timestamp("created_at").notNull(),
-	updatedAt: timestamp("updated_at").notNull(),
+  updatedAt: timestamp("updated_at").notNull(),
 });
