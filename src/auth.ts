@@ -6,10 +6,12 @@ import { sendEmailAction } from "./actions/mail/send-email.action";
 import { db } from "@/db/client";
 import { nextCookies } from "better-auth/next-js";
 
+import * as schema from "./db/schema";
+
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
     provider: "pg",
-    usePlural: true,
+    schema,
   }),
 
   emailAndPassword: {
